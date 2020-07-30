@@ -328,7 +328,7 @@ EOF
   done
 
   # Setup config.txt file
-  C=`grep -c "dtoverlay=dwc2,dr_mode=peripheral" $MNT/boot/config.txt`
+  C=$(grep -c "dtoverlay=dwc2,dr_mode=peripheral" $MNT/boot/config.txt)
   if [ $C -eq 0  ];then
    echo -e "# Load overlay to allow USB Gadget devices\n#dtoverlay=dwc2,dr_mode=peripheral" >> $MNT/boot/config.txt
   fi
