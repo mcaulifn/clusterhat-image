@@ -23,7 +23,7 @@ CONFIGDIR="/usr/share/clusterhat"
 PASSWORD=raspberry
 
 # Enable SSH
-ENABLESSH=0
+ENABLESSH=1
 
 # Enable auto serial login
 SERIALAUTOLOGIN=0
@@ -31,13 +31,16 @@ SERIALAUTOLOGIN=0
 # Do we run dist-upgrade?
 UPGRADE=1
 
+# Enable wifi?
+WIFI=1
+
 # Max Px nodes to build for lite/std/full
-MAXPLITE=4
+MAXPLITE=3
 MAXPSTD=0
 MAXPFULL=0
 
 # Do we build a usbboot/rpiboot image (NFSROOT)
-USBBOOTLITE=0
+USBBOOTLITE=1
 USBBOOTSTD=0
 USBBOOTFULL=0
 
@@ -51,7 +54,7 @@ GROWFULL="0"
 GROWSTD="0"
 
 # Space separated list of additional packages to install
-INSTALLEXTRA=""
+INSTALLEXTRA="cloud-init"
 
 # If set run rpi-update with this hash (kernel/firmware)
 RPIUPDATE=""

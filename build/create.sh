@@ -21,6 +21,10 @@ if [ ! -d "$MNT2" ]; then
  echo "\$MNT2 directory does not exist."
  exit
 fi
+if [ ! -d "$DEST" ]; then
+ echo "\$DEST directory does not exist."
+ exit
+fi
 
 # Get version from command line
 VER=$1
@@ -249,6 +253,13 @@ fallback clusterctrl_fallback_usb0
 interface br0
 fallback clusterctrl_fallback_br0
 EOF
+  
+  if [ "$WIFI" = "1" ];then
+  cat << EOF >> $MNT/etc/dhcpcd.conf
+
+interface wifi0
+EOF
+  fi
 
   # Enable uart with login
   chroot $MNT /bin/bash -c "raspi-config nonint do_serial 0"
