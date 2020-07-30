@@ -36,12 +36,12 @@ WIFI=1
 
 # Max Px nodes to build for lite/std/full
 MAXPLITE=3
-MAXPSTD=0
+MAXPSTD=3
 MAXPFULL=0
 
 # Do we build a usbboot/rpiboot image (NFSROOT)
 USBBOOTLITE=1
-USBBOOTSTD=0
+USBBOOTSTD=1
 USBBOOTFULL=0
 
 # usbboot compression options
