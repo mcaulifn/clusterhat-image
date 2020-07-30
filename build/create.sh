@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -xe
 
 source ./config.sh
 
@@ -25,6 +25,12 @@ if [ ! -d "$DEST" ]; then
  echo "\$DEST directory does not exist."
  exit
 fi
+
+for DIR in [${MNT}, ${MNT2}, ${DEST}]; do
+  cd ${DIR}
+  rm -rf *
+  cd ..
+done
 
 # Get version from command line
 VER=$1
@@ -165,7 +171,10 @@ EOF
   mount ${LOOP}p1 $MNT/boot
 
   if [ $QEMU -eq 1 ];then
-   cp /usr/bin/qemu-arm-static $MNT/usr/bin/qemu-arm-static
+    cp /usr/bin/qemu-arm-static $MNT/usr/bin/qemu-arm-static
+    if [ ! -f "$MNT/etc/ld.so.preload" ]; then
+      touch $MNT/etc/ld.so.preload
+    fi
    sed -i "s/\(.*\)/#\1/" $MNT/etc/ld.so.preload
   fi
 
