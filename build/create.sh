@@ -43,50 +43,68 @@ CNT=0
 
 # Check for Raspbian stretch
 if [ -f "$SOURCE/$VER-raspbian-stretch-lite.img" ];then
-  SOURCES[$CNT]="$VER-raspbian-stretch-lite.img|ClusterCTRL-$VER-lite-$REV|LITE|STRETCH"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspbian-stretch-lite.img|$VER-$REV-ClusterCTRL-armhf-lite|LITE|STRETCH"
+ let CNT=$CNT+1
 fi
 if [ -f "$SOURCE/$VER-raspbian-stretch.img" ];then
-  SOURCES[$CNT]="$VER-raspbian-stretch.img|ClusterCTRL-$VER-std-$REV|STD|STRETCH"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspbian-stretch.img|$VER-$REV-ClusterCTRL-armhf|STD|STRETCH"
+ let CNT=$CNT+1
 fi
 if [ -f "$SOURCE/$VER-raspbian-stretch-full.img" ];then
-  SOURCES[$CNT]="$VER-raspbian-stretch-full.img|ClusterCTRL-$VER-full-$REV|FULL|STRETCH"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspbian-stretch-full.img|$VER-$REV-ClusterCTRL-armhf-full|FULL|STRETCH"
+ let CNT=$CNT+1
 fi
 
 # Check for Raspbian buster
 if [ -f "$SOURCE/$VER-raspbian-buster-lite.img" ];then
-  SOURCES[$CNT]="$VER-raspbian-buster-lite.img|ClusterCTRL-$VER-lite-$REV|LITE|BUSTER"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspbian-buster-lite.img|$VER-$REV-ClusterCTRL-armhf-lite|LITE|BUSTER"
+ let CNT=$CNT+1
 fi
 if [ -f "$SOURCE/$VER-raspbian-buster.img" ];then
-  SOURCES[$CNT]="$VER-raspbian-buster.img|ClusterCTRL-$VER-std-$REV|STD|BUSTER"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspbian-buster.img|$VER-$REV-ClusterCTRL-armhf-std|STD|BUSTER"
+ let CNT=$CNT+1
 fi
 if [ -f "$SOURCE/$VER-raspbian-buster-full.img" ];then
-  SOURCES[$CNT]="$VER-raspbian-buster-full.img|ClusterCTRL-$VER-full-$REV|FULL|BUSTER"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspbian-buster-full.img|$VER-$REV-ClusterCTRL-armhf-full|FULL|BUSTER"
+ let CNT=$CNT+1
+fi
+
+# Check for Raspberry Pi OS (old naming scheme)
+if [ -f "$SOURCE/$VER-raspios-buster-lite-armhf.img" ];then
+ SOURCES[$CNT]="$VER-raspios-buster-lite-armhf.img|$VER-$REV-ClusterCTRL-armhf-lite|LITE|RASPIOS32BUSTER"
+ let CNT=$CNT+1
+fi
+#if [ -f "$SOURCE/$VER-raspios-buster-armhf.img" ];then
+# SOURCES[$CNT]="$VER-raspios-buster-armhf.img|$VER-$REV-ClusterCTRL-armhf|STD|RASPIOS32BUSTER"
+# let CNT=$CNT+1
+#fi
+if [ -f "$SOURCE/$VER-raspios-buster-full-armhf.img" ];then
+ SOURCES[$CNT]="$VER-raspios-buster-full-armhf.img|$VER-$REV-ClusterCTRL-armhf-full|FULL|RASPIOS32BUSTER"
+ let CNT=$CNT+1
 fi
 
 # Check for Raspberry Pi OS
-if [ -f "$SOURCE/$VER-raspios-buster-lite-armhf.img" ];then
-  SOURCES[$CNT]="$VER-raspios-buster-lite-armhf.img|ClusterCTRL-$VER-lite-$REV|LITE|RASPIOS32BUSTER"
-  let CNT=$CNT+1
+if [ -f "$SOURCE/$VER-raspios-buster-armhf-lite.img" ];then
+ SOURCES[$CNT]="$VER-raspios-buster-armhf-lite.img|$VER-$REV-ClusterCTRL-armhf-lite|LITE|RASPIOS32BUSTER"
+ let CNT=$CNT+1
 fi
 if [ -f "$SOURCE/$VER-raspios-buster-armhf.img" ];then
-  SOURCES[$CNT]="$VER-raspios-buster-armhf.img|ClusterCTRL-$VER-std-$REV|STD|RASPIOS32BUSTER"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspios-buster-armhf.img|$VER-$REV-ClusterCTRL-armhf|STD|RASPIOS32BUSTER"
+ let CNT=$CNT+1
 fi
-if [ -f "$SOURCE/$VER-raspios-buster-full-armhf.img" ];then
-  SOURCES[$CNT]="$VER-raspios-buster-full-armhf.img|ClusterCTRL-$VER-full-$REV|FULL|RASPIOS32BUSTER"
-  let CNT=$CNT+1
+if [ -f "$SOURCE/$VER-raspios-buster-armhf-full.img" ];then
+ SOURCES[$CNT]="$VER-raspios-buster-armhf-full.img|$VER-$REV-ClusterCTRL-armhf-full|FULL|RASPIOS32BUSTER"
+ let CNT=$CNT+1
 fi
 
 # Check for Raspberry Pi OS 64-bit
 if [ -f "$SOURCE/$VER-raspios-buster-arm64.img" ];then
-  SOURCES[$CNT]="$VER-raspios-buster-arm64.img|ClusterCTRL-$VER-std-64-$REV|STD|RASPIOS64BUSTER"
-  let CNT=$CNT+1
+ SOURCES[$CNT]="$VER-raspios-buster-arm64.img|$VER-$REV-ClusterCTRL-arm64|STD|RASPIOS64BUSTER"
+ let CNT=$CNT+1
+fi
+if [ -f "$SOURCE/$VER-raspios-buster-arm64-lite.img" ];then
+ SOURCES[$CNT]="$VER-raspios-buster-arm64-lite.img|$VER-$REV-ClusterCTRL-arm64-lite|LITE|RASPIOS64BUSTER"
+ let CNT=$CNT+1
 fi
 
 if [ $CNT -eq 0 ];then
@@ -156,10 +174,47 @@ r
 p
 w
 EOF
-    fi
+  fi
 
-    LOOP=`losetup -fP --show $DEST/$DESTFILENAME-CBRIDGE.img`
-    sleep 5
+  LOOP=`losetup -fP --show $DEST/$DESTFILENAME-CBRIDGE.img`
+  sleep 5
+
+  # If the image has been grown resize the filesystem
+  if [ ! ${!GROW} = "0" ];then
+   e2fsck -fp ${LOOP}p2
+   resize2fs -p ${LOOP}p2
+  fi
+
+  mount -o noatime,nodiratime ${LOOP}p2 $MNT
+  mount ${LOOP}p1 $MNT/boot
+  mount -o bind /proc $MNT/proc
+  mount -o bind /dev $MNT/dev
+
+  if [ $QEMU -eq 1 ];then
+   cp /usr/bin/qemu-arm-static $MNT/usr/bin/qemu-arm-static
+   sed -i "s/\(.*\)/#\1/" $MNT/etc/ld.so.preload
+  fi
+
+  chroot $MNT apt -y purge wolfram-engine
+
+  # Get any updates / install and remove pacakges
+  chroot $MNT apt update -y
+  if [ $UPGRADE = "1" ];then
+   chroot $MNT /bin/bash -c 'APT_LISTCHANGES_FRONTEND=none apt -y dist-upgrade'
+  fi
+
+  if [ $RELEASE = "BUSTER" -o $RELEASE = "RASPIOS32BUSTER" -o $RELEASE = "RASPIOS64BUSTER" ];then
+   INSTALLEXTRA+=" initramfs-tools-core"
+  fi
+
+  chroot $MNT apt -y install rpiboot bridge-utils wiringpi screen minicom python-smbus subversion git libusb-1.0-0-dev nfs-kernel-server python-usb python-libusb1 busybox $INSTALLEXTRA
+
+  # Setup ready for iptables for NAT for NAT/WiFi use
+  # Preseed answers for iptables-persistent install
+  chroot $MNT /bin/bash -c "echo 'iptables-persistent iptables-persistent/autosave_v4 boolean false' | debconf-set-selections"
+  chroot $MNT /bin/bash -c "echo 'iptables-persistent iptables-persistent/autosave_v6 boolean false' | debconf-set-selections"
+
+  chroot $MNT /bin/bash -c 'APT_LISTCHANGES_FRONTEND=none apt -y install iptables-persistent'
 
     # If the image has been grown resize the filesystem
     if [ ! ${!GROW} = "0" ];then
@@ -246,6 +301,7 @@ EOF
 
     cat << EOF >> $MNT/etc/dhcpcd.conf
 # ClusterCTRL
+reboot 15
 denyinterfaces ethpi* ethupi* ethupi*.10 brint eth0 usb0.10
 
 profile clusterctrl_fallback_usb0
@@ -292,58 +348,46 @@ EOF
 ExecStart=
 ExecStart=-/sbin/agetty --autologin pi --noclear %I \$TERM
 EOF
-      fi
-      if [ $RELEASE = "STRETCH" ];then
-        sed -i "s#agetty --keep-baud#agetty --autologin pi --keep-baud#" $MNT/lib/systemd/system/serial-getty@.service
-      fi
-    fi
+   fi
+   if [ $RELEASE = "STRETCH" ];then
+    sed -i "s#agetty --keep-baud#agetty --autologin pi --keep-baud#" $MNT/lib/systemd/system/serial-getty@.service
+   fi
+  fi
 
-    # Extract files
-    (tar --exclude=.git -cC ../files/ -f - .) | (chroot $MNT tar -xC /)
+  # Extract files
+  (tar --exclude=.git -cC ../files/ -f - .) | (chroot $MNT tar -xC /)
 
-    # Disable the auto filesystem resize and convert to bridged controller
-    sed -i "s# init=.*# init=/sbin/reconfig-clusterctrl cbridge#" $MNT/boot/cmdline.txt
+  # Disable the auto filesystem resize and convert to bridged controller
+  sed -i "s# init=.*# init=/sbin/reconfig-clusterctrl cbridge#" $MNT/boot/cmdline.txt
 
-    # Setup directories for rpiboot
-    mkdir -p $MNT/var/lib/clusterctrl/boot
-    mkdir $MNT/var/lib/clusterctrl/nfs
-    if [ -z $BOOTCODE ];then
-      ln -fs /boot/bootcode.bin $MNT/var/lib/clusterctrl/boot/
-    else
-      wget -O $MNT/var/lib/clusterctrl/boot/bootcode.bin $BOOTCODE
-    fi
+  # Setup directories for rpiboot
+  mkdir -p $MNT/var/lib/clusterctrl/boot
+  mkdir $MNT/var/lib/clusterctrl/nfs
+  if [ -z $BOOTCODE ];then
+   ln -fs /boot/bootcode.bin $MNT/var/lib/clusterctrl/boot/
+  elif [ ! $BOOTCODE = "none" ];then
+   wget -O $MNT/var/lib/clusterctrl/boot/bootcode.bin $BOOTCODE
+  fi
 
-    # Enable clusterctrl init
-    chroot $MNT systemctl enable clusterctrl-init
+  # Enable clusterctrl init
+  chroot $MNT systemctl enable clusterctrl-init
 
-    # Enable rpiboot for booting without SD cards
-    chroot $MNT systemctl enable clusterctrl-rpiboot
-    # Disable nfs server (rely on clusterctrl-rpiboot to start it if needed)
-    chroot $MNT systemctl disable nfs-kernel-server
+  # Enable rpiboot for booting without SD cards
+  chroot $MNT systemctl enable clusterctrl-rpiboot
+  # Disable nfs server (rely on clusterctrl-rpiboot to start it if needed)
+  chroot $MNT systemctl disable nfs-kernel-server
 
-    # Setup NFS exports for NFSROOT
-    for ((P=1;P<=3;P++));do
-      echo "/var/lib/clusterctrl/nfs/p$P 172.19.180.0/24(rw,sync,no_subtree_check,no_root_squash)" >> $MNT/etc/exports
-      mkdir "$MNT/var/lib/clusterctrl/nfs/p$P"
-    done
+  # Setup NFS exports for NFSROOT
+  for ((P=1;P<=252;P++));do
+   echo "/var/lib/clusterctrl/nfs/p$P 172.19.180.$P(rw,sync,no_subtree_check,no_root_squash)" >> $MNT/etc/exports
+   mkdir "$MNT/var/lib/clusterctrl/nfs/p$P"
+  done
 
-    # Setup config.txt file
-    C=$(grep -c "dtoverlay=dwc2,dr_mode=peripheral" $MNT/boot/config.txt)
-    if [ $C -eq 0  ];then
-      echo -e "# Load overlay to allow USB Gadget devices\n#dtoverlay=dwc2,dr_mode=peripheral" >> $MNT/boot/config.txt
-    fi
-
-    rm -f $MNT/etc/ssh/*key*
-    chroot $MNT apt -y autoremove --purge
-    chroot $MNT apt clean
-
-    if [ $QEMU -eq 1 ];then
-      rm $MNT/usr/bin/qemu-arm-static
-      sed -i "s/^#//" $MNT/etc/ld.so.preload
-    fi
-
-    umount $MNT/boot
-    umount $MNT
+  # Setup config.txt file
+  C=`grep -c "dtoverlay=dwc2,dr_mode=peripheral" $MNT/boot/config.txt`
+  if [ $C -eq 0  ];then
+   echo -e "# Load overlay to allow USB Gadget devices\n#dtoverlay=dwc2,dr_mode=peripheral" >> $MNT/boot/config.txt
+  fi
 
     zerofree -v ${LOOP}p2
     sleep 5
@@ -351,7 +395,18 @@ EOF
     losetup -d $LOOP
   fi
 
-  # Build the usbboot image if required
+  umount $MNT/dev
+  umount $MNT/proc
+  umount $MNT/boot
+  umount $MNT
+
+  zerofree -v ${LOOP}p2
+  sleep 5
+
+  losetup -d $LOOP
+ fi
+
+ # Build the usbboot image if required
 
   USBBOOT="USBBOOT$VARNAME" # Build variable name to check
   if [ ${!USBBOOT} = "1" ] && [ -f "$DEST/$DESTFILENAME-CBRIDGE.img" ] && [ ! -f "$DEST/$DESTFILENAME-usbboot.tar.xz" ] && [ ! -f "$DEST/$DESTFILENAME-usbboot.tar" ];then
